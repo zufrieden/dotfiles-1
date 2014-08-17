@@ -28,6 +28,7 @@ alias as='cd ~/Sites/Antistatique'
 alias github='cd ~/GitHub'
 
 alias npmls='npm ls --depth=0'
+alias npm-check='npm-check-updates'
 
 alias lg='git lg'
 
@@ -59,25 +60,23 @@ DEFAULT_USER="toni"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast brew git-flow-avh node sudo osx ruby sublime autojump bower npm zsh-syntax-highlighting composer)
+plugins=(gitfast brew git git-flow-avh node sudo osx ruby sublime autojump bower npm zsh-syntax-highlighting composer)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.git-flow-completion.zsh
 source ~/.
-source /usr/local/share/zsh-syntax-highlighting/.
 
 # Customize to your needs...
-export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
-export PATH=/usr/local/Cellar/php54/5.4.21/bin:/usr/local/bin:$PATH:~/bin
+export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/php54/5.4.29/bin:/usr/local/bin:$PATH:~/bin
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 
 export HOMEBREW_GITHUB_API_TOKEN=43d4fc7efbb9515c8aebf7a4737817653350957b
-
-PATH=$PATH:~/.composer/vendor/bin # add drush
 
 
 # LSCOLORS/LS_COLORS
@@ -103,3 +102,5 @@ zmodload -a colors
 zmodload -a autocomplete
 zmodload -a complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

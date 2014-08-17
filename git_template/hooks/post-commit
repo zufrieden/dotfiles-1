@@ -1,0 +1,23 @@
+
+#!/bin/bash
+#
+# This script will make a webcam snapshot every commit. The jpg file will have
+# the commit id as the filename.
+#
+# This script requires imagesnap. Install with: 'brew install imagesnap'
+#
+# Put this file in the '.git/hooks/' name it 'post-commit' and chmod it by:
+# 'chmod +x .git/hooks/post-commit'
+#
+# Make sure the .gitshots directory exists in the root of the repo.
+#
+# Inspired by Victor Martinez (http://coderwall.com/p/xlatfq?p=1&q=)
+#
+#
+# Todo:
+# * Check if '.gitshots' excists otherwise make it!
+# * Add snapshot on pre-commit to repo
+#
+
+COMMITID=$(git rev-parse HEAD)
+imagesnap -q -w 1 ~/.gitshots/$COMMITID.jpg >&- 2>&- &

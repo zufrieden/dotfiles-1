@@ -1,54 +1,105 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" No compatibility
+set nocompatible
+set encoding=utf-8
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
 
-Bundle 'lsdr/monokai'
+" Syntax highlighting
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-colorscheme delek
+" Detect filetype
+filetype plugin on
+" Enable syntax highighting
 syntax enable
+" 256 colours, please
+set t_Co=256
+let g:solarized_termcolors=256
+" Dark solarized scheme
+set background=dark
+colorscheme monokai 
 
 
-set tabstop=2
-set softtabstop=2
+
+" Set relevant filetypes
+au BufRead,BufNewFile *.scss set filetype=css
+au BufRead,BufNewFile *.md set filetype=markdown
+
+
+
+" Tabs, indentation and lines
+
+filetype plugin indent on
+" 4 spaces please
 set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+" Round indent to nearest multiple of 4
+set shiftround
+" No line-wrapping
+set nowrap
 
-set number
+
+
+" Interactions
+
+" Start scrolling slightly before the cursor reaches an edge
+set scrolloff=3
+set sidescrolloff=5
+" Scroll sideways a character at a time, rather than a screen at a time
+set sidescroll=1
+" Allow motions and back-spacing over line-endings etc
+set backspace=indent,eol,start
+set whichwrap=h,l,b,<,>,~,[,]
+" Underscores denote words
+set iskeyword-=_
+
+
+
+" Visual decorations
+
+" Show status line
+set laststatus=2
+" Show what mode you’re currently in
+set showmode
+" Show what commands you’re typing
 set showcmd
-filetype indent on
-set wildmenu
-set lazyredraw
-set showmatch
-
+" Allow modelines
+set modeline
+" Show current line and column position in file
+set ruler
+" Show file title in terminal tab
+set title
+" Set relative line numbers if we can...
+if exists("+relativenumber")
+    " Due to a problem with relative line numbers not persisting across new
+    " tabs and splits, set no line numbers at all...
+    set nonumber
+    " ..then set relative ones.
+    set relativenumber
+" ...otherwise let’s just have regular ones.
+else
+    set number
+endif
+" Limit line-length to 80 columns by highlighting col 81 onward
+if exists("+colorcolumn")
+    set colorcolumn=81
+endif
+" Highlight current line
+set cursorline
+" Don’t keep results highlighted after searching...
+set nohlsearch
+" ...just highlight as we type
 set incsearch
-set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
-
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-set foldmethod=indent
+" Ignore case when searching...
+set ignorecase
+" ...except if we input a capital letter
+set smartcase
 
 
+
+" Key mappings
+
+" jj to throw you into normal mode from insert mode
+inoremap jj <esc>
+" jk to throw you into normal mode from insert mode
+inoremap jk <esc>

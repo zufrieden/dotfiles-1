@@ -1,0 +1,63 @@
+[user]
+	name = Toni Fisler
+	email = mail@tonifisler.ch
+[core]
+	excludesfile = /Users/toni/.gitignore_global
+	quotepath = false
+	  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	precomposeunicode = true
+	editor = vim
+[push]
+	default = upstream
+[color]
+	ui = true
+[color "status"]
+	header = normal
+	added = green
+	removed = red
+	changed = yellow
+	untracked = cyan
+	branch = magenta
+[color "branch"]
+	current = yellow black
+	local = yellow
+	remote = magenta
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red reverse
+	new = green reverse
+	whitespace = white reverse
+[alias]
+	st = status --short
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log --graph --pretty=format:'%C(yellow)%h%Creset %C(green)%d%Creset %s - %Cblue(%cr)%Creset - %an' --abbrev-commit --date=relative
+	ls = ls-files
+	adall = add . -all
+[credential]
+	helper = osxkeychain
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 
+[init]
+	templatedir = ~/.git_template
