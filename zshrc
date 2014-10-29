@@ -8,19 +8,10 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="toni"
 
 # Aliases
-alias mkrea='cd ~/Sites/margaux/wp-content/themes/MKrea'
-alias rockoz='cd ~/Sites/wp-rockoz/wp-content/themes/rockoztheme'
-alias masset='cd ~/Sites/wp/wp-content/themes/massettheme'
-alias elvio='cd ~/Sites/50ans/wp-content/themes/roots'
-alias cardis='cd ~/Sites/Antistatique/cardis'
-alias strap='cd ~/Sites/Antistatique/drupal/themes/strap'
-alias prateo='cd ~/Sites/Antistatique/prateo/wp-content/themes/prateo'
-alias egj='cd ~/Sites/RestlessTaxidermists/epicgamejam.net'
-alias egj='cd ~/Sites/RestlessTaxidermists/epicgamejam.net'
-alias egjtheme='cd ~/Sites/RestlessTaxidermists/epicgamejam.net/content/themes/epicgamejam'
 alias wbf='ssh tonifisler@web420.webfaction.com'
 
 alias vi='/usr/local/bin/vim'
+alias tree='tree -A -C --dirsfirst'
 
 alias sites='cd ~/Sites'
 alias as='cd ~/Sites/Antistatique'
@@ -65,7 +56,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast brew git git-flow-avh node sudo osx ruby sublime autojump bower npm zsh-syntax-highlighting composer)
+plugins=(gitfast brew git git-flow-avh node sudo osx ruby sublime autojump bower npm zsh-syntax-highlighting zsh-completions composer)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.git-flow-completion.zsh
@@ -104,3 +95,6 @@ zmodload -a complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"

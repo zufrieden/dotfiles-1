@@ -36,7 +36,6 @@
 	df = diff
 	lg = log --graph --pretty=format:'%C(yellow)%h%Creset %C(green)%d%Creset %s - %Cblue(%cr)%Creset - %an' --abbrev-commit --date=relative
 	ls = ls-files
-	adall = add . -all
 [credential]
 	helper = osxkeychain
 [difftool "Kaleidoscope"]
@@ -51,13 +50,13 @@
 [merge]
 	tool = Kaleidoscope
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [init]
 	templatedir = ~/.git_template
