@@ -6,6 +6,15 @@ To install, run
 $ sh makesymlinks.sh
 ```
 
+## iTerm custom theme
+
+ - Make sure you're using oh-my-zsh
+ - Install font [**Source Code Pro Powerline**](powerline-fonts-SourceCodePro at master · Lokaltog-powerline-fonts Solarized-toto.itermcolors)
+ - Install the oh-my-zsh theme `toni.zsh-theme` in your `~/.oh-my-zsh/themes/`
+ - Install the `Solarized-toto.itermcolors`
+ - Run `$ source ~/.zshrc`
+
+
 ## Homebrew list
 
 ```shell
